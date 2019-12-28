@@ -2,7 +2,7 @@ version: "2"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-namenode
     container_name: namenode
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
@@ -14,7 +14,7 @@ services:
       - "9870:50070"
   
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-resourcemanager
     container_name: resourcemanager
     depends_on:
       - namenode
@@ -26,7 +26,7 @@ services:
       - "8089:8088"
   
   historyserver:
-    image: bde2020/hadoop-historyserver:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-historyserver
     container_name: historyserver
     depends_on:
       - namenode
@@ -38,7 +38,7 @@ services:
       - ./hadoop.env
   
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-nodemanager
     container_name: nodemanager1
     depends_on:
       - namenode
@@ -49,7 +49,7 @@ services:
     
   
   datanode1:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode
     container_name: datanode1
     depends_on:
       - namenode
@@ -59,7 +59,7 @@ services:
       - ./hadoop.env
   
   datanode2:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode
     container_name: datanode2
     depends_on:
       - namenode
